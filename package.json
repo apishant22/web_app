@@ -1,0 +1,19 @@
+{
+  "name": "dress_app",
+  "version": "1.0.0",
+  "main": "routes/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "private": true,
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.7.7",
+    "cheerio": "^1.0.0",
+    "ejs": "^3.1.10",
+    "express": "^4.21.0"
+  }
+}

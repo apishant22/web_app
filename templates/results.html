@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results for "{{ query }}"</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='results.css') }}">
+</head>
+<body class="results-page">
+
+<!-- Search Bar at the Top -->
+<div class="results-search">
+    <form class="search-form" action="/results" method="GET">
+        <input type="text" name="query" id="searchBarResults" value="{{ query }}" placeholder="Search for your perfect dress..." required>
+        <button type="submit">
+            <span class="button-text">Search</span>
+            <span class="loader" style="display: none;"></span>
+        </button>
+    </form>
+</div>
+
+<!-- Search Results Title -->
+<div class="results-title-container">
+    <h2 class="results-title">Search Results for: "{{ query | title }}"</h2>
+</div>
+
+<!-- Results Grid -->
+<div class="container">
+    {% if dresses %}
+    <div class="dress-grid">
+        {% for dress in dresses %}
+        <div class="dress-card">
+            {% if dress.image %}
+            <img src="{{ dress.image }}" alt="{{ dress.title }}">
+            {% endif %}
+            <h3>{{ dress.title }}</h3>
+            <p class="price">{{ dress.price }}</p>
+            <p class="description">{{ dress.description }}</p>
+            <a href="{{ dress.link }}" target="_blank">View Product</a>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>No dresses found matching your criteria.</p>
+    {% endif %}
+</div>
+
+<!-- Pagination (Optional) -->
+<div class="pagination">
+    {% if page > 1 %}
+    <a href="{{ url_for('results', query=query, page=1) }}" class="first">First</a>
+    <a href="{{ url_for('results', query=query, page=page-1) }}" class="prev">Previous</a>
+    {% endif %}
+
+    {% for p in range(max(1, page - 2), min(page + 2, total_pages) + 1) %}
+    <a href="{{ url_for('results', query=query, page=p) }}"
+       class="{% if p == page %}active{% endif %}">{{ p }}</a>
+    {% endfor %}
+
+    {% if page < total_pages %}
+    <a href="{{ url_for('results', query=query, page=page+1) }}" class="next">Next</a>
+    <a href="{{ url_for('results', query=query, page=total_pages) }}" class="last">Last</a>
+    {% endif %}
+</div>
+
+<input type="hidden" id="currentPage" value="{{ page }}">
+<input type="hidden" id="totalPages" value="{{ total_pages }}">
+<input type="hidden" id="searchQuery" value="{{ query }}">
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const currentPage = parseInt(document.getElementById('currentPage').value); // Assuming you have a hidden field with the current page number
+        const totalPages = parseInt(document.getElementById('totalPages').value); // Assuming another hidden field with total pages
+        const query = document.getElementById('searchQuery').value; // Assuming you have the search query in a hidden input
+
+        if (currentPage < totalPages) {
+            preloadNextPage(currentPage, totalPages, query);
+        }
+
+        function preloadNextPage(currentPage, totalPages, query) {
+            if (currentPage < totalPages) {
+                const nextPage = currentPage + 1;
+                const url = `/results?query=${query}&page=${nextPage}`;
+                fetch(url).then(response => {
+                    // Preload data for the next page
+                }).catch(error => {
+                    console.error('Error preloading next page:', error);
+                });
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
+

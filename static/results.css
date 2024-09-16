@@ -1,0 +1,211 @@
+/* General body and layout for results page */
+.results-page {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9f7f3;
+    color: #333;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+/* Search Bar Styling */
+.results-search {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.search-form input {
+    width: 350px;
+    padding: 15px;
+    border-radius: 40px;
+    border: 2px dashed #d1ccc4;
+    font-size: 18px;
+    background-color: #fffdf7;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.search-form input:focus {
+    outline: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-color: #2f2e2d;
+}
+
+.search-form button {
+    padding: 12px 25px;
+    margin-left: 10px;
+    border-radius: 40px;
+    background-color: #2f2e2d;
+    color: white;
+    font-size: 16px;
+    border: 1px dashed #555;
+    cursor: pointer;
+}
+
+.search-form button:hover {
+    background-color: #5c5b59;
+    transform: translateY(-2px);
+}
+
+/* Results Title Styling */
+.results-title-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.results-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #2f2e2d;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+}
+
+/* Container for dress cards */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1px dashed #bbb;
+}
+
+/* Grid for the dresses */
+.dress-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+
+.dress-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.dress-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin: 15px 0;
+    color: #2f2e2d;
+}
+
+.dress-card .price {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem;
+    color: #666;
+    margin: 5px 0;
+}
+
+.dress-card .description {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: #888;
+    margin: 5px 0 15px;
+}
+
+.dress-card a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #2f2e2d;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.dress-card a:hover {
+    background-color: #5c5b59;
+    transform: translateY(-2px);
+}
+
+/* Dress Grid */
+.dress-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+.dress-card {
+    background-color: #fffdf7;
+    border: 2px dashed #d1ccc4; /* Dotted border */
+    border-radius: 10px;
+    padding: 15px;
+    width: calc(33.333% - 20px); /* Adjust width to fit 3 items per row */
+    max-width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    margin-bottom: 20px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.3s ease; /* Added border-color transition */
+}
+
+.dress-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    border-color: #2f2e2d; /* Border changes to black */
+}
+
+
+/* Container */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.92);
+    border-radius: 15px;
+    border: 1px dashed #ddd;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Title */
+.results-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem; /* Reduced size */
+    color: #2f2e2d;
+    text-align: center;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Pagination Styling */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.pagination a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px; /* Reduced padding for smaller buttons */
+    width: 39px; /* Smaller width */
+    height: 39px; /* Smaller height */
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50%; /* Round buttons */
+    margin: 0 5px;
+    transition: background-color 0.3s ease;
+    font-size: 11px; /* Reduced font size to fit */
+}
+
+.pagination a:hover {
+    background-color: #555;
+}
+
+.pagination a.active {
+    background-color: #ff4081;
+    font-weight: bold;
+}
+
+
+

@@ -1,0 +1,334 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9f7f3;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Container */
+.container {
+    max-width: 1100px; /* Slightly reduced max-width for more compact layout */
+    margin: 0 auto;
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.92); /* Softer white background */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Lighter, softer shadow */
+    border: 1px dashed #ddd; /* Subtle dashed border */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* Softer and more spread out */
+}
+
+
+
+/* Header */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+/* Text Content - Title and Search */
+.text-content {
+    width: 48%; /* Reduced width for better balance */
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 5.5rem;
+    color: #2f2e2d;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Search Form */
+.search-form {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.search-form input {
+    width: 340px;
+    padding: 15px;
+    border-radius: 40px;
+    border: 1px dashed #d1ccc4; /* Thinner, subtle dashed border */
+    font-size: 18px;
+    background-color: #fcfbf9;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.search-form input:focus {
+    outline: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-color: #2f2e2d;
+}
+
+.search-form button {
+    padding: 12px 25px;
+    margin-left: 10px;
+    border-radius: 40px;
+    background-color: #2f2e2d;
+    color: white;
+    font-size: 16px;
+    font-family: 'Shadows Into Light', cursive;
+    border: 1px dashed #555;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.search-form button:hover {
+    background-color: #5c5b59;
+    transform: translateY(-2px);
+}
+
+/* Image Content */
+.image-content {
+    width: 48%; /* Same width as text for balance */
+    text-align: right;
+}
+
+.fashion-image {
+    max-width: 90%; /* Slightly smaller image */
+    height: auto;
+    filter: brightness(0.92);
+}
+
+/* Footer */
+footer {
+    margin-top: 50px;
+    font-size: 14px;
+    color: #888;
+    text-align: center;
+    font-family: 'Shadows Into Light', cursive;
+    border-top: 1px dashed #bbb;
+    padding-top: 10px;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logo {
+        font-size: 4rem;
+        margin-bottom: 20px;
+    }
+
+    .search-form input {
+        width: 80%;
+    }
+
+    .image-content {
+        width: 100%;
+        text-align: center;
+    }
+
+    .fashion-image {
+        max-width: 90%;
+    }
+}
+
+/* Subtle fade-in for the whole container */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px); /* Minimal upward movement */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    animation: fadeIn 1.5s ease-out; /* Slower fade-in with subtle upward motion */
+}
+
+/* Gentle floating for the logo */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+}
+
+.logo {
+    animation: float 4s ease-in-out infinite; /* Longer, more relaxed floating */
+}
+
+/* Refined button hover effect */
+.search-form button {
+    padding: 12px 25px;
+    margin-left: 10px;
+    border-radius: 40px;
+    background-color: #2f2e2d;
+    color: white;
+    font-size: 16px;
+    font-family: 'Shadows Into Light', cursive;
+    border: 1px dashed #555;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Add box-shadow */
+}
+
+.search-form button:hover {
+    background-color: #5c5b59;
+    transform: translateY(-1px); /* Subtle lift on hover */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); /* Soft shadow on hover for depth */
+}
+
+/* More delicate image entrance */
+@keyframes imageEntrance {
+    from {
+        opacity: 0;
+        transform: translateX(10px); /* Slight horizontal movement */
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.fashion-image {
+    max-width: 100%;
+    height: auto;
+    filter: brightness(0.95);
+    animation: imageEntrance 1.8s ease-out; /* Slower, smoother image entrance */
+}
+
+/* Footer fade-in */
+@keyframes footerFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+footer {
+    animation: footerFadeIn 2s; /* Footer fades in after 1 second */
+}
+
+/* Overall smoother text transitions */
+body, .logo, .search-form input, .search-form button, footer p {
+    transition: all 0.5s ease-out; /* Applies smooth transitions to text and form elements */
+}
+
+body {
+    background: linear-gradient(135deg, #f9f7f3, #f2eee5);
+    background-size: 400% 400%;
+    animation: gradientAnimation 5s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.search-form input:focus {
+    outline: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-color: #2f2e2d;
+    background-color: #f9f7f3; /* Subtle color change */
+    transition: background-color 0.3s ease;
+}
+
+.fashion-image {
+    transition: transform 1s ease-in-out; /* Smooth transition for both hover and out */
+}
+
+.fashion-image:hover {
+    transform: scale(1.05); /* Slightly larger when hovered */
+}
+
+.search-form input:focus {
+    width: 400px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-color: #2f2e2d;
+    transition: width 0.4s ease;
+}
+
+.logo {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-form input, .search-form button {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+button {
+    position: relative;
+    padding: 12px 25px;
+    margin-left: 10px;
+    border-radius: 40px;
+    background-color: #2f2e2d;
+    color: white;
+    font-size: 16px;
+    font-family: 'Shadows Into Light', cursive; /* Another hand-drawn font */
+    border: 1px dashed #555;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Aligns the content (including the loader) to the center */
+    width: 80px; /* Adjust width as needed */
+    height: 40px; /* Adjust height as needed */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #5c5b59;
+    transform: translateY(-2px);
+}
+
+.loader {
+    border: 3px solid #f3f3f3; /* Light grey */
+    border-top: 3px solid #555; /* Darker grey for the animation */
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+    position: absolute;
+    /* Center the loader */
+}
+
+.button-text {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+
+
+
+
+
